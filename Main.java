@@ -37,29 +37,26 @@ public class Main {
         CollectionManager collectionManager = new CollectionManager(Dragon);
         System.out.println("Добро пожаловать!");
         System.out.println("Напечатайте  help, чтобы начать");
-        //InputChecker inputChecker = new InputChecker();
         DragonChecker dragonChecker = new DragonChecker();
             CommandManager commandManager = new CommandManager(
                     new HelpCommand(),
                     new InfoCommand(collectionManager),
                     new ShowCommand(collectionManager),
                     new AddCommand(collectionManager),
-                    new UpdateCommand(collectionManager, marineAsker),
+                    new UpdateCommand(collectionManager, dragonChecker),
                     new RemoveByIdCommand(collectionManager),
                     new ClearCommand(collectionManager),
                     new SaveCommand(collectionManager),
                     new ExitCommand(),
                     new ExecuteScriptCommand(),
-                    new AddIfMinCommand(collectionManager, marineAsker),
-                    new RemoveGreaterCommand(collectionManager, marineAsker),
+                    new PrintAscending(),
+                    new PrintFieldDHead(),
+                    new RemoveAnyByDD();
+                    new AddIfMaxCommand(collectionManager, dragonChecker)
+                    new AddIfMinCommand(collectionManager, dragonChecker),
+                    new RemoveLowerCommand(collectionManager, dragonChecker),
                     new HistoryCommand(),
-                    new SumOfHealthCommand(collectionManager),
-                    new MaxByMeleeWeaponCommand(collectionManager),
-                    new FilterByWeaponTypeCommand(collectionManager)
             );
-            Console console = new Console(commandManager, userScanner);
-
-            console.interactiveMode();
-        }
+           ////.....
     }
 }
