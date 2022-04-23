@@ -3,27 +3,23 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.TreeSet;
 
-import commands.AddCommand;
-import commands.AddIfMinCommand;
-import commands.ClearCommand;
-import commands.ExecuteScriptCommand;
-import commands.ExitCommand;
-import commands.HelpCommand;
-import commands.InfoCommand;
-import commands.RemoveByIdCommand;
-import commands.SaveCommand;
-import commands.ShowCommand;
-import commands.UpdateCommand;
+import Drago.Dragon;
+import Managers.CollectionManager;
+import Managers.CommandManager;
+import Managers.FileManager;
+import commands.*;
 import Drago.DragonChecker;
 
 
 
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        FileM fileM = new FileM();
 
-        TreeSet<Dragon> organization = fileM.read();
+
+    public static void main(String[] args) throws IOException {
+        FileManager fileManager = new FileManager();
+
+        TreeSet<Dragon> dragon = fileManager.read();
 
         CollectionManager collectionManager = new CollectionManager(Dragon);
         System.out.println("Добро пожаловать!");
@@ -42,10 +38,10 @@ public class Main {
                     new ExecuteScriptCommand(),
                     new PrintAscending(),
                     new PrintFieldDHead(),
-                    new RemoveAnyByDD();
-                    new AddIfMaxCommand(collectionManager, dragonChecker)
-                    new AddIfMinCommand(collectionManager, dragonChecker),
-                    new RemoveLowerCommand(collectionManager, dragonChecker),
+                    new RemoveAnyByDD(collectionManager,dragonChecker);
+                    new AddIfMaxCommand(collectionManager, dragonChecker);
+                    new AddIfMinCommand(collectionManager, dragonChecker);
+                    new RemoveLowerCommand(collectionManager, dragonChecker);
                     new HistoryCommand(),
             );
            ////.....
