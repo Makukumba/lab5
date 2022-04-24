@@ -8,7 +8,7 @@ import Drago.DragonChecker;
 
 import java.time.LocalDateTime;
 
-public class AddIfMaxCommand extends AbstractCommand{
+public abstract class AddIfMaxCommand extends AbstractCommand{
     private CollectionManager collectionManager;
     private DragonChecker dragonChecker;
 

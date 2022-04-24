@@ -4,10 +4,8 @@ import java.util.Scanner;
 import java.util.TreeSet;
 
 import Drago.Dragon;
-import Managers.CollectionManager;
-import Managers.CommandManager;
-import Managers.FileManager;
-import commands.*;
+import Managers.*;
+//import commands.*;
 import Drago.DragonChecker;
 
 
@@ -17,11 +15,13 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
-        FileManager fileManager = new FileManager();
+    //    FileManager fileManager = new FileManager();
 
-        TreeSet<Dragon> dragon = fileManager.read();
+        //  TreeSet<Dragon> dragon = fileManager.read();
 
-        CollectionManager collectionManager = new CollectionManager(Dragon);
+        /**
+
+             CollectionManager collectionManager = new CollectionManager(Dragon);
         System.out.println("Добро пожаловать!");
         System.out.println("Напечатайте  help, чтобы начать");
         DragonChecker dragonChecker = new DragonChecker();
@@ -45,5 +45,8 @@ public class Main {
                     new HistoryCommand(),
             );
            ////.....
-    }
-}
+    } */
+        Parser parser = new Parser();
+        ParseHelper helper = parser.parse();
+        System.out.println( helper.toString());
+}}

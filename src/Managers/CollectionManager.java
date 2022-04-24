@@ -11,4 +11,5 @@ public class CollectionManager {
 
     public CollectionManager(TreeSet<Dragon> fileManager) {
 
-        this.fileManager = fileManager;}}
+        //  this.fileManager = fileManager;}
+    }}

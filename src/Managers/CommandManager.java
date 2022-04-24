@@ -1,20 +1,7 @@
 package Managers;
 import java.util.HashMap;
 import Drago.Dragon;
-import Managers.CollectionManager;
-import commands.*;
-import commands.AddIfMaxCommand;
-import commands.AddIfMinCommand;
-import commands.ClearCommand;
-import commands.Command;
-import commands.ExecuteScriptCommand;
-import commands.ExitCommand;
-import commands.HelpCommand;
-import commands.InfoCommand;
-import commands.RemoveLowerCommand;
-import commands.SaveCommand;
-import commands.ShowCommand;
-import commands.UpdateCommand;
+
 
 public class CommandManager {
     private HashMap<String, Command> commands;
