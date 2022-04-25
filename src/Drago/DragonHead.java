@@ -7,4 +7,5 @@ public class DragonHead {
     private double getEyesCount(){
         return eyesCount;
     }
+    public String toString(){return "Количество глаз: " + eyesCount;}
     }

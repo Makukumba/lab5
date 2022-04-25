@@ -2,7 +2,7 @@ package commands;
 
 
 
-public  abstract class AbstractCommand implements commands.Command {
+public abstract class AbstractCommand implements commands.Command {
     private String name;
     private String description;
 

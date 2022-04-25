@@ -1,7 +1,7 @@
 package Drago;
 import java.time.LocalDate;
 public class Dragon implements Comparable<Dragon>  {
-    private Long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
+   /** private Long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private  Coordinates coordinates; //Поле не может быть null
     //private java.time.LocalDate creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
@@ -51,10 +51,51 @@ public class Dragon implements Comparable<Dragon>  {
         return information;
     }
 */
+    private long id;
+    private String name;
+    private Coordinates coordinates;
+    //private java.time.LocalDate creationDate;
+    private String description;
+    private Integer age;
+    private int weight;
+    private DragonCharacter character;
+    private DragonHead head;
+
+
+    public Dragon( long id, String name, Coordinates coordinates,String description, int age, int weight, DragonCharacter character, DragonHead head) {
+        this.id = id;
+        this.name = name;
+        this.coordinates = coordinates;
+       // this.creationDate = creationDate;
+        this.description = description;
+        this.age = age;
+        this.weight = weight;
+        this.character = character;
+        this.head = head;
+    }
+    public long getId(){return id;}
+    public String getName(){
+        return name;
+    }
+    public Coordinates getCoordinates(){return coordinates;}
+    //public java.time.LocalDate getCreationDate(){return creationDate;}
+    public String getDescription(){return description;}
+    public Integer getAge(){
+        return age;
+    }
+    public int getWeight(){return weight;}
+    public DragonCharacter getCharacter(){return character;}
+    public DragonHead getHead(){return head;}
+
+
+
 
     public int compareTo(Dragon o) {
-int result =this.id.compareTo(o.id);
+int result =this.age.compareTo(o.age);
         return result;
+    }
+    public String toString(){
+        return"Дракон "+name +" Id: "+ id+ " Координаты: " +"("+ coordinates+ ")" + " Возраст: " + age +" Описание: " + description+ " Вес: "+ weight+ " Характер: " + character + " Голова: " + head;
     }
 }
 

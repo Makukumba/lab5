@@ -9,7 +9,10 @@ public class CollectionManager {
 
     private FileManager fileManager;
 
-    public CollectionManager(TreeSet<Dragon> fileManager) {
+   // public CollectionManager(TreeSet<Dragon> fileManager) {
+        public void clearCollection() {
+            dragonCollection.clear();
+        }
 
         //  this.fileManager = fileManager;}
-    }}
+    }
