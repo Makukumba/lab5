@@ -14,8 +14,8 @@ import Drago.DragonChecker;
 public class Main {
 
 
-    public static void main(String[] args)
-          //  throws IOException
+    public static void main(String[] args) throws IOException
+    //  throws IOException
     {
     //    FileManager fileManager = new FileManager();
         //  TreeSet<Dragon> dragon = fileManager.read();
@@ -45,7 +45,11 @@ public class Main {
             );
            ////.....
     } */
-        Parser parser = new Parser();
-        ParseHelper helper = parser.parse();
-        System.out.println(helper.toString());
+          // Parser parser = new Parser();
+         //  ParseHelper helper = parser.parse();
+        //  System.out.println(helper.toString());
+        JWriter jWriter = new JWriter();
+        JWriter jWriter1 = new JWriter();
+        jWriter.write();
+        jWriter1.write();
 }}

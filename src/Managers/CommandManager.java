@@ -1,15 +1,48 @@
 package Managers;
-import java.util.HashMap;
-import Drago.Dragon;
 
+import commands.Command;
+import commands.ExitCommand;
+import commands.HelpCommand;
+import commands.InfoCommand;
+
+import java.util.HashMap;
 
 public class CommandManager {
-    private HashMap<String, Command> commands;
-
-
-    public CommandManager(CollectionManager collectionManager, Dragon dragonChecker) {
+    HashMap<String, Command> commands;
+    public CommandManager() {
         commands = new HashMap<>();
         commands.put("help", new HelpCommand());
+        commands.put("info", new InfoCommand());
+        commands.put("exit", new ExitCommand());
+    }
+    public void execute(String commandName, String arguments) {
+        Command command = commands.get(commandName);
+        command.execute(arguments);}
+    public HashMap<String, Command> getCommands() {
+        return commands;
+    }
+    public void help(){
+        System.out.println(commands.values());
+    }
+    public void info(){
+
+    }
+    public void exit(){
+        System.exit(0);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+      /**  commands.put("help", new HelpCommand());
         commands.put("info", new InfoCommand(collectionManager));
         commands.put("show", new ShowCommand(collectionManager));
         commands.put("add", new AddCommand(collectionManager, dragonChecker));
@@ -22,7 +55,7 @@ public class CommandManager {
         commands.put("add_if_min", new AddIfMinCommand(collectionManager, dragonChecker));
         commands.put("add_if_max", new AddIfMaxCommand(collectionManager, dragonChecker));
         commands.put("remove_lower", new RemoveLowerCommand(collectionManager, dragonChecker));
-      //  commands.put("print_field_descending_head", )
+
 
     }
 
@@ -57,3 +90,4 @@ public class CommandManager {
 
 
 }
+*/

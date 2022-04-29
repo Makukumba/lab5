@@ -1,17 +1,26 @@
 package commands;
 
 import Drago.DragonChecker;
-import Managers.CollectionManager;
 import commands.AbstractCommand;
+import exceptions.WrongAmountOfElementsException;
 
 import java.time.LocalDateTime;
 
 public class UpdateCommand extends AbstractCommand {
-    private CollectionManager collectionManager;
-    private DragonChecker dragonChecker;
+    public UpdateCommand() {
+        super("info", "вывести в стандартный поток вывода информацию о коллекции");
+    }
 
-    public UpdateCommand(CollectionManager collectionManager, DragonChecker dragonChecker) {
-        super("update <ID> {element}", "обновить значение элемента коллекции по ID");
-        this.collectionManager = collectionManager;
-        this.dragonChecker = dragonChecker;
-    }}
+
+
+    public  boolean execute(String argument) {
+        try {
+            if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
+            return true;
+        } catch (WrongAmountOfElementsException exception) {
+            System.out.println("Использование: '" + getName() + "'");
+        }
+        return false;
+    }
+
+}

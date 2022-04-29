@@ -1,14 +1,22 @@
 package commands;
 import Drago.Dragon;
 import exceptions.*;
-import Managers.CollectionManager;
 import Drago.DragonChecker;
 public class RemoveLowerCommand extends AbstractCommand{
-    private CollectionManager collectionManager;
-    private DragonChecker dragonChecker;
+    public RemoveLowerCommand() {
+        super("info", "вывести в стандартный поток вывода информацию о коллекции");
+    }
 
-    public RemoveLowerCommand(CollectionManager collectionManager, DragonChecker dragonChecker) {
-        super("remove_lower {element}", " удалить из коллекции все элементы, меньшие, чем заданный");
-        this.collectionManager = collectionManager;
-        this.dragonChecker = dragonChecker;
-    }}
+
+
+    public  boolean execute(String argument) {
+        try {
+            if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
+            return true;
+        } catch (WrongAmountOfElementsException exception) {
+            System.out.println("Использование: '" + getName() + "'");
+        }
+        return false;
+    }
+
+}

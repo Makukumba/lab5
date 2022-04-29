@@ -1,12 +1,23 @@
 package commands;
 
 
-import Managers.CollectionManager;
+import exceptions.WrongAmountOfElementsException;
 
 public class SaveCommand extends AbstractCommand{
-    private CollectionManager collectionManager;
+    public SaveCommand() {
+        super("info", "вывести в стандартный поток вывода информацию о коллекции");
+    }
 
-    public SaveCommand(CollectionManager collectionManager) {
-        super("save", "сохранить коллекцию в файл");
-        this.collectionManager = collectionManager;
-    }}
+
+
+    public  boolean execute(String argument) {
+        try {
+            if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
+            return true;
+        } catch (WrongAmountOfElementsException exception) {
+            System.out.println("Использование: '" + getName() + "'");
+        }
+        return false;
+    }
+
+}
