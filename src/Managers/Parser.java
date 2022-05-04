@@ -12,7 +12,7 @@ import java.util.TreeSet;
 public class Parser {
     public ParseHelper parse(){
         Gson gson = new Gson();
-        try(FileReader reader = new FileReader("C:\\Users\\Public\\lab5\\dragon.json")){
+        try(FileReader reader = new FileReader("dragon1.json")){
             Scanner scan = new Scanner(reader);
             ParseHelper parseHelper = new ParseHelper();
 

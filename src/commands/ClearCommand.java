@@ -4,9 +4,11 @@ import Drago.Dragon;
 import exceptions.*;
 import Drago.DragonChecker;
 
+import java.io.Console;
+
 public class ClearCommand extends AbstractCommand{
     public ClearCommand() {
-        super("info", "вывести в стандартный поток вывода информацию о коллекции");
+        super("clear", "очистить информацию о коллекции");
     }
 
 
@@ -22,3 +24,23 @@ public class ClearCommand extends AbstractCommand{
     }
 
 }
+/**public class ClearCommand extends AbstractCommand{
+    private CollectionManager collectionManager;
+
+    public ClearCommand(CollectionManager collectionManager) {
+        super("clear", "очистить коллекцию");
+        this.collectionManager = collectionManager;
+    }
+
+    public boolean execute(String argument) {
+        try {
+            if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
+            collectionManager.clearCollection();
+            Console.println("Коллекция очищена!");
+            return true;
+        } catch (WrongAmountOfElementsException exception) {
+            Console.println("Использование: '" + getName() + "'");
+        }
+        return false;
+    }
+}**/

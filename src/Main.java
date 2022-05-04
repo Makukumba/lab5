@@ -1,5 +1,6 @@
 
 import java.io.IOException;
+import java.time.DayOfWeek;
 import java.util.Scanner;
 import java.util.TreeSet;
 
@@ -7,49 +8,83 @@ import Drago.Dragon;
 import Managers.*;
 //import commands.*;
 import Drago.DragonChecker;
-
-
+import com.google.gson.internal.bind.util.ISO8601Utils;
+import commands.Command;
 
 
 public class Main {
 
 
     public static void main(String[] args) throws IOException
-    //  throws IOException
     {
-    //    FileManager fileManager = new FileManager();
-        //  TreeSet<Dragon> dragon = fileManager.read();
-        /**
-             CollectionManager collectionManager = new CollectionManager(Dragon);
-        System.out.println("Добро пожаловать!");
-        System.out.println("Напечатайте  help, чтобы начать");
-        DragonChecker dragonChecker = new DragonChecker();
-            CommandManager commandManager = new CommandManager(
-                    new HelpCommand(),
-                    new InfoCommand(collectionManager),
-                    new ShowCommand(collectionManager),
-                    new AddCommand(collectionManager),
-                    new UpdateCommand(collectionManager, dragonChecker),
-                    new RemoveByIdCommand(collectionManager),
-                    new ClearCommand(collectionManager),
-                    new SaveCommand(collectionManager),
-                    new ExitCommand(),
-                    new ExecuteScriptCommand(),
-                    new PrintAscending(),
-                    new PrintFieldDHead(),
-                    new RemoveAnyByDD(collectionManager,dragonChecker);
-                    new AddIfMaxCommand(collectionManager, dragonChecker);
-                    new AddIfMinCommand(collectionManager, dragonChecker);
-                    new RemoveLowerCommand(collectionManager, dragonChecker);
-                    new HistoryCommand(),
-            );
-           ////.....
-    } */
-          // Parser parser = new Parser();
-         //  ParseHelper helper = parser.parse();
-        //  System.out.println(helper.toString());
-        JWriter jWriter = new JWriter();
-        JWriter jWriter1 = new JWriter();
-        jWriter.write();
-        jWriter1.write();
-}}
+        TreeSet ts = new TreeSet();
+        CommandManager cm = new CommandManager();
+        Scanner scanner = new Scanner(System.in);
+        String text = scanner.nextLine();
+        String a = "help";
+        String b = "exit";
+        String c = "info";
+        String d = "add";
+        String e = "show";
+        String f = "save";
+        if (text.equals(a))
+        { cm.help();}
+        else if (text.equals(b)){
+            cm.exit();
+        }
+        else if (text.equals(c)){
+            cm.info();
+        }
+        else if (text.equals(d))
+        {cm.add(ts);}
+        else if (text.equals(e))
+        {cm.show(ts);}
+        String text1 = scanner.nextLine();
+        if (text1.equals(a))
+        { cm.help();}
+        else if (text1.equals(b)){
+            cm.exit();
+        }
+        else if (text1.equals(c)){
+            cm.info();
+        }
+        else if (text1.equals(d))
+        {cm.add(ts);}
+        else if (text1.equals(e))
+        {cm.show(ts);}
+        String text2 = scanner.nextLine();
+        if (text2.equals(a))
+        { cm.help();}
+        else if (text2.equals(b)){
+            cm.exit();
+        }
+        else if (text2.equals(c)){
+            cm.info();
+        }
+        else if (text2.equals(d))
+        {cm.add(ts);}
+        else if (text2.equals(e))
+        {cm.show(ts);}
+        else if (text2.equals(f)){
+            cm.save(ts);
+        }
+        String text3 = scanner.nextLine();
+        if (text3.equals(a))
+        { cm.help();}
+        else if (text3.equals(b)){
+            cm.exit();
+        }
+        else if (text3.equals(c)){
+            cm.info();
+        }
+        else if (text3.equals(d))
+        {cm.add(ts);}
+        else if (text3.equals(e))
+        {cm.show(ts);}
+        else if (text3.equals(f)){
+            cm.save(ts);
+        }
+    }
+
+}
+

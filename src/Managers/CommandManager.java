@@ -1,11 +1,11 @@
 package Managers;
 
-import commands.Command;
-import commands.ExitCommand;
-import commands.HelpCommand;
-import commands.InfoCommand;
+import commands.*;
 
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.Scanner;
+import java.util.TreeSet;
 
 public class CommandManager {
     HashMap<String, Command> commands;
@@ -14,6 +14,13 @@ public class CommandManager {
         commands.put("help", new HelpCommand());
         commands.put("info", new InfoCommand());
         commands.put("exit", new ExitCommand());
+        commands.put("add", new AddCommand());
+        commands.put("clear", new ClearCommand());
+        commands.put("removelower", new RemoveLowerCommand());
+        commands.put("save", new SaveCommand());
+        commands.put("show", new ShowCommand());
+        commands.put("update", new UpdateCommand());
+
     }
     public void execute(String commandName, String arguments) {
         Command command = commands.get(commandName);
@@ -28,9 +35,23 @@ public class CommandManager {
 
     }
     public void exit(){
-        System.exit(0);
+        System.out.println("завершение работы");
+        System.exit(0)
+        ;
     }
-}
+    public void add(TreeSet ts) throws IOException {
+        JWriter jWriter = new JWriter();
+        jWriter.write(ts);
+    }
+    public void show (TreeSet ts) {
+        System.out.println("Выводим информация о коллекции");
+            System.out.println(ts);}
+public void save(TreeSet ts) throws IOException {
+JWriter jWriter = new JWriter();
+jWriter.save(ts);
+}}
+
+
 
 
 

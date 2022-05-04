@@ -1,11 +1,12 @@
 package commands;
 
+import Drago.Dragon;
+import exceptions.*;
+import Drago.DragonChecker;
 
-import exceptions.WrongAmountOfElementsException;
-
-public class SaveCommand extends AbstractCommand{
-    public SaveCommand() {
-        super("save", "сохраняет коллекцию в файл");
+public class AddCommand extends AbstractCommand{
+    public AddCommand() {
+        super("add", "добавить элемент в коллекцию");
     }
 
 

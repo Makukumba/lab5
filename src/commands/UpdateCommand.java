@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 public class UpdateCommand extends AbstractCommand {
     public UpdateCommand() {
-        super("info", "вывести в стандартный поток вывода информацию о коллекции");
+        super("update", "обновляет ");
     }
 
 

@@ -4,7 +4,7 @@ import exceptions.WrongAmountOfElementsException;
 public class ShowCommand extends AbstractCommand{
 
         public ShowCommand() {
-            super("info", "вывести в стандартный поток вывода информацию о коллекции");
+            super("show", "показывает доступные коллекции");
         }
 
 

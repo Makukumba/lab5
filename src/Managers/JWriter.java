@@ -1,4 +1,5 @@
 package Managers;
+
 import Drago.Coordinates;
 import Drago.Dragon;
 import Drago.DragonHead;
@@ -9,29 +10,15 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.time.DayOfWeek;
 import java.util.Scanner;
+import java.util.TreeSet;
 
 import static Drago.DragonCharacter.EVIL;
 
 public class JWriter {
-  /**  private static final Gson gson = new GsonBuilder().create();
-    Scanner scanner = new Scanner(System.in);
-    String namE = scanner.nextLine();
-    long iD = scanner.nextLong();
-    int X = scanner.nextInt();
-    long Y = scanner.nextLong();
-    Coordinates coordinateS = new Coordinates(X,Y);
-    // Scanner scanner1 = new Scanner(System.in);
-   // String descriptioN = scanner1.nextLine();
-    String descriptioN = "kj[";
-    int weighT = scanner.nextInt();
-    int agE = scanner.nextInt();
-    double Ey = scanner.nextDouble();
-    DragonHead heaD = new DragonHead(Ey);
-    Dragon dragon = new Dragon(iD, namE, coordinateS ,descriptioN,agE, weighT, EVIL,heaD);
-    String json = gson.toJson( dragon );
-   */
-    public JWriter write() throws IOException {
+
+    public JWriter write(TreeSet ts)  {
         Gson gson = new GsonBuilder().create();
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите id: ");
@@ -42,7 +29,7 @@ public class JWriter {
         System.out.print("Введите координаты: ");
         int X = scanner.nextInt();
         long Y = scanner.nextLong();
-        Coordinates coordinateS = new Coordinates(X,Y);
+        Coordinates coordinateS = new Coordinates(X, Y);
         Scanner scanner2 = new Scanner(System.in);
         System.out.print("Описание: ");
         String descriptioN = scanner2.nextLine();
@@ -53,15 +40,27 @@ public class JWriter {
         System.out.print("Введите количество глаз   : ");
         double Ey = scanner.nextDouble();
         DragonHead heaD = new DragonHead(Ey);
-        Dragon dragon = new Dragon(iD, namE, coordinateS ,descriptioN,agE, weighT, EVIL,heaD);
-        String json = gson.toJson( dragon );
-        File file = new File("dragon1.json" );
+        Dragon dragon = new Dragon(iD, namE, coordinateS, descriptioN, agE, weighT, EVIL, heaD);
+//      Dragon dragon = new Dragon(iD, namE, coordinateS, creationDate, descriptioN, agE, weighT, EVIL, heaD);
+        /**String json = gson.toJson(dragon);
+        File file = new File("dragon1.json");
+        // File file = new File(System.getenv().get("jjson"));
         OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(file, true));
-       // writer.write("[");
+        //writer.write("[");
         writer.append(json);
-       // writer.write("]");
+        //writer.write("]");
         writer.close();
+         */
+        ts.add(dragon);
         return null;
     }
+    public void save(TreeSet ts) throws IOException{
+            Gson gson = new GsonBuilder().create();
+            File file = new File("dragon1.json");
+            OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(file, true));
+            gson.toJson(ts, writer);
+            writer.close();
+            System.out.println("Коллекция записана в файл " + file);
 
     }
+}

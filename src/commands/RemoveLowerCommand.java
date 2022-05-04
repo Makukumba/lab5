@@ -4,7 +4,7 @@ import exceptions.*;
 import Drago.DragonChecker;
 public class RemoveLowerCommand extends AbstractCommand{
     public RemoveLowerCommand() {
-        super("info", "вывести в стандартный поток вывода информацию о коллекции");
+        super("remowe lower", "удаляет элемент коллекции с наименьшим значением ");
     }
 
 
