@@ -1,8 +1,11 @@
 package Managers;
 
+import Drago.Dragon;
+import com.sun.source.tree.Tree;
 import commands.*;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.TreeSet;
@@ -31,8 +34,16 @@ public class CommandManager {
     public void help(){
         System.out.println(commands.values());
     }
-    public void info(){
+    public void info(TreeSet ts){
+        LocalDate date = LocalDate.now();
+        int year = date.getYear();
+        int month = date.getMonthValue();
+        int dayOfMonth = date.getDayOfMonth();
+        System.out.println("Коллекция типа TreeSet");
+        System.out.println("Количество элементов в коллекции " +ts.size());
+        System.out.println("Дата создания коллекции: " +date );
 
+// Нужно доДЕОЛАЯТЬЬЬ
     }
     public void exit(){
         System.out.println("завершение работы");
@@ -48,8 +59,27 @@ public class CommandManager {
             System.out.println(ts);}
 public void save(TreeSet ts) throws IOException {
 JWriter jWriter = new JWriter();
-jWriter.save(ts);
-}}
+jWriter.save(ts);}
+public void print_ascending(TreeSet ts)throws IOException{
+        System.out.println(ts.last());
+}
+public void cler(TreeSet ts){
+        ts.clear();
+}
+
+public void add_if_max(TreeSet ts){
+        JWriter jWriter = new JWriter();
+        jWriter.writeif(ts);
+        }
+public void add_if_min(TreeSet ts){
+        JWriter jWriter = new JWriter();
+        jWriter.writeif1(ts);
+}
+public void remove_by_id(TreeSet ts){
+
+}
+
+}
 
 
 
