@@ -16,16 +16,12 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
+        Parser parser = new Parser();
+
         TreeSet ts = new TreeSet();
         CommandManager cm = new CommandManager();
         System.out.print("Для начала работы введите команду help ");
         Scanner scanner1 = new Scanner(System.in);
-        String text1 = scanner1.nextLine();
-        String s = "help";
-        if (text1.equals(s)) {
-            cm.help();}
-        else {System.out.println("Завершение работы");
-            System.exit(0);}
         while (true) {
 
             Scanner scanner = new Scanner(System.in);
@@ -40,6 +36,9 @@ public class Main {
             String h = "clear";
             String i = "add_if_max";
             String j = "add_if_min";
+            String k = "remove_by_id";
+            String l = "remove_by_d";
+            //parser.parse(ts);
             if (text.equals(a)) {
                 cm.help();
             } else if (text.equals(b)) {
@@ -57,13 +56,19 @@ public class Main {
                 cm.print_ascending(ts);
             }
             else if(text.equals(h)) {
-            cm.cler(ts);
+            cm.clear(ts);
             }
             else if (text.equals(i)){
             cm.add_if_max(ts);
             }
             else if (text.equals(j)) {
             cm.add_if_min(ts);
+            }
+            else if (text.equals(k)){
+                cm.remove_by_id(ts);
+            }
+            else if (text.equals(l)){
+                cm.remove_by_d(ts);
             }
             else {
                 System.out.println("Ошибка, неправильное имя команды! Попробуйте снова");

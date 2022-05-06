@@ -20,7 +20,6 @@ public class Parser {
             Type collectionType = new TypeToken<TreeSet<Dragon>>() {}.getType();
             collection = gson.fromJson(scan.nextLine().trim(), collectionType);
             parseHelper.setDragon(collection);
-
             return parseHelper;
         }
         catch (Exception e ){
