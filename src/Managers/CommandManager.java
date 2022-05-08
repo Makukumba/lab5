@@ -1,6 +1,7 @@
 package Managers;
 
 import Drago.Dragon;
+import Drago.DragonCharacter;
 import com.sun.source.tree.Tree;
 import commands.*;
 
@@ -48,8 +49,6 @@ public class CommandManager {
         System.out.println("Коллекция типа TreeSet");
         System.out.println("Количество элементов в коллекции " +ts.size());
         System.out.println("Дата создания коллекции: " +date);
-
-// Нужно доДЕОЛАЯТЬЬЬ
     }}
     public void exit(){
         System.out.println("завершение работы");
@@ -59,6 +58,7 @@ public class CommandManager {
     public void add(TreeSet ts) throws IOException {
         JWriter jWriter = new JWriter();
         jWriter.write(ts);
+        System.out.println("Дракон успешно добавлен в коллекцию");
     }
     public void show (TreeSet ts) {
         System.out.println("Выводим информация о коллекции");
@@ -92,23 +92,24 @@ public void ss(TreeSet<Dragon> ts) {
     }
     else { System.out.println("Дракона с таким id не существует");
     }
+
     }
     public Dragon remove_by_id(TreeSet<Dragon> ts) {
         System.out.print("Введите id: ");
         Scanner scanner = new Scanner(System.in);
         long s = scanner.nextLong();
-       // Dragon dragonn = new Dragon(null,null,null,null,0,0,null, null);
         for (Dragon dragon : ts) {
             if (dragon.getId() == s)
-            { //dragonn = dragon;
+            {
                 ts.remove(dragon);
                 System.out.println("Дракон с id "+s+" удален");
                 break;
             }
             else {
-                System.out.println("Дракона с таким id не существует");
+                System.out.print("");
             }
         }
+
         return null;
     }
     public void remove_by_d(TreeSet<Dragon> ts){
@@ -122,11 +123,29 @@ public void ss(TreeSet<Dragon> ts) {
                 break;
             }
             else{
-                System.out.println("Дракона с таким описанием не существует");
+                System.out.print("");
             }
         }
     }
-}
+    public void update(TreeSet<Dragon> ts){
+        System.out.println("Введите id");
+        Scanner scanner = new Scanner(System.in);
+        long s = scanner.nextLong();
+        for (Dragon dragon : ts){
+            if(dragon.getId() == s){
+                Scanner scanner1 = new Scanner(System.in);
+                Long s1 = scanner1.nextLong();
+                Dragon dragonn = new Dragon(s1, dragon.getName(), dragon.getCoordinates(), dragon.getDescription(), dragon.getAge(), dragon.getWeight(), DragonCharacter.EVIL, dragon.getHead());
+                ts.remove(dragon);
+                ts.add(dragonn);
+                System.out.println("id дракона заменён");
+                break;
+        }
+            else{
+                System.out.println("Дракона с таким id не существует ");
+            }
+    }
+}}
 
 
 

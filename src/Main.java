@@ -21,7 +21,7 @@ public class Main {
         TreeSet ts = new TreeSet();
         CommandManager cm = new CommandManager();
         System.out.print("Для начала работы введите команду help ");
-        Scanner scanner1 = new Scanner(System.in);
+        //Scanner scanner1 = new Scanner(System.in);
         while (true) {
 
             Scanner scanner = new Scanner(System.in);
@@ -38,6 +38,7 @@ public class Main {
             String j = "add_if_min";
             String k = "remove_by_id";
             String l = "remove_by_d";
+            String m = "update";
             //parser.parse(ts);
             if (text.equals(a)) {
                 cm.help();
@@ -69,6 +70,9 @@ public class Main {
             }
             else if (text.equals(l)){
                 cm.remove_by_d(ts);
+            }
+            else if (text.equals(m)){
+                cm.update(ts);
             }
             else {
                 System.out.println("Ошибка, неправильное имя команды! Попробуйте снова");

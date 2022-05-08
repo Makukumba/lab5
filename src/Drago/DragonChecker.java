@@ -15,40 +15,49 @@ public class DragonChecker {
     private Integer weight; //Значение поля должно быть больше 0, Поле может быть null
     private DragonCharacter character; //Поле не может быть null
     private DragonHead head;
+    //public long ID(){
+
+    //}
 public String NAME(){
+    String name = null;
+    while (name == null) {
         Scanner input = new Scanner(System.in);
         System.out.print("Введите имя Дракона: ");
         name = input.nextLine();
         if (name.equals("")) {
-        System.out.println("Некорректное имя. Повторите попытку.");}
-         else if(name ==null){System.out.println("Некорректное имя. Повторите попытку.");}
-        else  {System.out.println(name);
+            System.out.println("Некорректное описание. Повторите попытку.");
+        }
+
+        else {
+            break;
+        }
     }
-return name;}
+    return name;}
+
+
 public int X(){
 int x;
 
 Scanner input = new Scanner(System.in);
-System.out.println("Введите координату x");
+System.out.print("Введите координату x: ");
     x = input.nextInt();
     if(x<= Coordinates.min_x){
 System.out.println("Ошибка! Число должно быть больше, чем " + Coordinates.min_x);
     }
-   else{ System.out.println(x);
+   else{ System.out.print("");
 }
 return x;
 }
 public long Y(){
     long y;
-   // long Y;
     Scanner input = new Scanner(System.in);
-    System.out.println("Введите координату y");
+    System.out.print("Введите координату y: ");
     y = input.nextInt();
     if(y<= Coordinates.min_y){
         System.out.println("Ошибка! Число должно быть больше, чем " + Coordinates.min_y);
     }
-    else {System.out.println(y);}
-return y;
+    else {return y;}
+    return y;
 }
 public Coordinates COORDINATES(){
     int x;
@@ -56,47 +65,69 @@ public Coordinates COORDINATES(){
     x =X();
     y = Y();
     return new Coordinates(x,y);
-
-
 }
-//public void CReationDate(){
-  //  long random = ThreadLocalRandom.current().nextLong(startDate.getTime(), endDate.getTime());
-   // Date date = new Date(random);
-    public int AGE(){
-        int age;
+    public String DESCRIPTION() {
+        String description = null;
+        while (description == null) {
+            Scanner input = new Scanner(System.in);
+            System.out.print("Введите описание Дракона: ");
+            description = input.nextLine();
+            if (description.equals("")) {
+                System.out.println("Некорректное описание. Повторите попытку.");
+            }
 
-        Scanner input = new Scanner(System.in);
-        System.out.println("Введите значение возраста");
-        age = input.nextInt();
-        if(age<= 0){
-            System.out.println("Ошибка! Число должно быть больше, чем " + 0);
+            else {
+                break;
+            }
         }
-        else{ System.out.println(age);
+        return description;
+    }
+    public int AGE(){
+        int age = -1;
+        int a = 0;
+        while (age <= a) {
+            Scanner input = new Scanner(System.in);
+            System.out.print("Введите значение возраста: ");
+            age = input.nextInt();
+            if (age <= a) {
+                System.out.println("Ошибка! Число должно быть больше, чем " + a);
+            } else {
+                break;
+            }
         }
         return age;
     }
-    public Integer WEIGHT(){
-    int weight;
-    int a = 0;
-        Scanner input = new Scanner(System.in);
-        System.out.println("Введите значение веса");
-        weight = input.nextInt();
-        if(weight<= a){
-            System.out.println("Ошибка! Число должно быть больше, чем " + a);
-        }
-        else{ System.out.println(weight);
+    public Integer WEIGHT() {
+        int weight = -1;
+        int a = 0;
+        while (weight <= a) {
+            Scanner input = new Scanner(System.in);
+            System.out.print("Введите значение веса: ");
+            weight = input.nextInt();
+            if (weight <= a) {
+                System.out.println("Ошибка! Число должно быть больше, чем " + a);
+            } else {
+                break;
+            }
         }
         return weight;
     }
-    //public Drago.DragonCharacter character(){
+    public double EYES(){
+        Double e = null;
 
-    //}
-    //return character;
-//private data.DragonHead head(){
+        while(e ==null){
+        Scanner input = new Scanner(System.in);
+        System.out.print("Введите количество глаз: ");
+        e = input.nextDouble();
+        if(e==null){System.out.println("Попробуйте снова!");}
+        else {break;}
 
-//}
-//public Dragon createElement(Long id) {
-  //  return new Dragon(id, name,  COORDINATES(x, y), creationDate, age,description,weight);
+    }return e;}
+   public DragonHead dragonHead(){
+double eyesCount;
+       eyesCount=EYES();
+   return new DragonHead(eyesCount);
+}
 }
 
 
