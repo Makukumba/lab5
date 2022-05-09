@@ -21,15 +21,11 @@ public class JWriter {
     DragonChecker dragonChecker = new DragonChecker();
     public JWriter write(TreeSet ts)  {
 
-       // Scanner scanner = new Scanner(System.in);
-        //System.out.print("Введите id: ");
-        long iD = 1+ new Random().nextLong();
-        Dragon dragon = new Dragon(iD, dragonChecker.NAME(), dragonChecker.COORDINATES(), dragonChecker.DESCRIPTION(), dragonChecker.AGE(), dragonChecker.WEIGHT(), EVIL, dragonChecker.dragonHead());
+        Dragon dragon = new Dragon(dragonChecker.ID(), dragonChecker.NAME(), dragonChecker.COORDINATES(), dragonChecker.DESCRIPTION(), dragonChecker.AGE(), dragonChecker.WEIGHT(), dragonChecker.CHAR(), dragonChecker.dragonHead());
         ts.add(dragon);
-
         return null;
     }
-    public void writeif(TreeSet<Dragon> ts)  {
+    public void ifmax(TreeSet<Dragon> ts)  {
         while(true){
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите id: ");
@@ -40,22 +36,26 @@ public class JWriter {
             break;
         }
         else {
-            System.out.println("id не подходит, поробуйте снова");
+            System.out.println("id должен быть больше, чем"+ts.last().getId()+ ". Попробуйте снова");
         }
 
         }}
-    public void writeif1(TreeSet<Dragon> ts) {
+    public void ifmin(TreeSet<Dragon> ts) {
         while(true) {
             Scanner scanner = new Scanner(System.in);
             System.out.print("Введите id: ");
             long iD = scanner.nextLong();
-            if (iD < ts.first().getId()) {
+            if (iD<=0) {
+                System.out.println("id должен быть больше 0");
+            }
+            else if (iD < ts.first().getId()) {
                 Scanner scanner1 = new Scanner(System.in);
-                Dragon dragon = new Dragon(iD, dragonChecker.NAME(), dragonChecker.COORDINATES(), dragonChecker.DESCRIPTION(), dragonChecker.AGE(), dragonChecker.WEIGHT(), EVIL, dragonChecker.dragonHead());
+                Dragon dragon = new Dragon(iD, dragonChecker.NAME(), dragonChecker.COORDINATES(), dragonChecker.DESCRIPTION(), dragonChecker.AGE(), dragonChecker.WEIGHT(), dragonChecker.CHAR(), dragonChecker.dragonHead());
                 ts.add(dragon);
                 break;
-            } else {
-                System.out.println("id не подходит, попробуйте снова");
+            }
+            else {
+                System.out.println("id должен быть меньше, чем "+ts.first().getId() +". Попробуйте снова");
             }
 
         }}

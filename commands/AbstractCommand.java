@@ -18,14 +18,4 @@ public abstract class AbstractCommand implements commands.Command {
     public String getDescription() {
         return description;
     }
-
-    public String toString() {
-        return name + " (" + description + ")";
-    }
-
-    public int hashCode() {
-        return name.hashCode() + description.hashCode();
-    }
-
-
     }

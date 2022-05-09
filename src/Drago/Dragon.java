@@ -63,7 +63,7 @@ public class Dragon implements Comparable<Dragon> {
     }
 
     public String toString() {
-        return "Дракон " + name + " Id: " + id + " Координаты: " + "(" + coordinates + ")" + " Возраст: " + age + " Описание: " + description + " Вес: " + weight + " Характер: " + character + " Голова: " + head;
+        return " Id: " + id+ " Имя: " + name +   " Координаты: " + "(" + coordinates + ")" + " Возраст: " + age + " Описание: " + description + " Вес: " + weight + " Характер: " + character + " Голова: " + head;
     }
 
 }

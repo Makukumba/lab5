@@ -13,7 +13,7 @@ public class ClearCommand extends AbstractCommand{
 
 
 
-    public  boolean execute(String argument) {
+    /*public  boolean execute(String argument) {
         try {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
             return true;
@@ -22,6 +22,8 @@ public class ClearCommand extends AbstractCommand{
         }
         return false;
     }
+
+     */
 
 }
 /**public class ClearCommand extends AbstractCommand{
