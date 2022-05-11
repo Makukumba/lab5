@@ -7,10 +7,7 @@ import com.sun.source.tree.Tree;
 import java.io.IOException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Scanner;
-import java.util.TreeSet;
+import java.util.*;
 
 public class CommandManager {
     public void help(){
@@ -83,10 +80,13 @@ public void add_if_min(TreeSet ts){
         jWriter.ifmin(ts);
         System.out.println("Дракон успешно добавлен в коллекцию");
 }
-    public Dragon remove_by_id(TreeSet<Dragon> ts) {
-        System.out.print("Введите id: ");
-        Scanner scanner = new Scanner(System.in);
-        long s = scanner.nextLong();
+    public void remove_by_id(TreeSet<Dragon> ts) {
+
+
+            System.out.print("Введите id: ");
+       try {
+           Scanner scanner = new Scanner(System.in);
+           long s = scanner.nextLong();
         for (Dragon dragon : ts) {
             if (dragon.getId() == s)
             {
@@ -94,9 +94,10 @@ public void add_if_min(TreeSet ts){
                 System.out.println("Дракон с id "+s+" удален");
                 break;
             }
-        }
-
-        return null;
+        }}
+       catch (InputMismatchException exception){
+           System.out.println("Значение id должно быть представлено числом");}
+       catch (NullPointerException exception){System.out.println("Поле не может быть null");}
     }
     public void remove_by_d(TreeSet<Dragon> ts){
         System.out.print("Введите описание: ");
@@ -109,15 +110,17 @@ public void add_if_min(TreeSet ts){
                 break;
             }
         }
+
     }
     public void update(TreeSet<Dragon> ts){
         System.out.print("Введите id дракона: ");
+        try{
         Scanner scanner = new Scanner(System.in);
         long s = scanner.nextLong();
-        Scanner scanner1 = new Scanner(System.in);
         for (Dragon dragon : ts){
             if(dragon.getId() == s){
                 System.out.print("Введите новый id дракона: ");
+                Scanner scanner1 = new Scanner(System.in);
                 Long s1 = scanner1.nextLong();
                 Dragon dragonn = new Dragon(s1, dragon.getName(), dragon.getCoordinates(), dragon.getDescription(), dragon.getAge(), dragon.getWeight(), DragonCharacter.EVIL, dragon.getHead());
                 ts.remove(dragon);
@@ -126,10 +129,13 @@ public void add_if_min(TreeSet ts){
                 break;
         }
     }
-}public void remove_lower( TreeSet<Dragon> ts){
-        //long s = -1;
-       // while (s==-1){
+}catch (InputMismatchException exception){
+            System.out.println("Значение id должно быть представлено числом");}
+        catch (NullPointerException exception){System.out.println("Поле не может быть null");}
+    }
+        public void remove_lower( TreeSet<Dragon> ts){
         System.out.println("Введите id дракона: ");
+        try{
         Scanner scanner = new Scanner(System.in);
         long s = scanner.nextLong();
         for (Iterator<Dragon> iterator  = ts.iterator(); iterator .hasNext();) {
@@ -138,6 +144,9 @@ public void add_if_min(TreeSet ts){
                 iterator.remove();
             }
         }
+    } catch (InputMismatchException exception){
+            System.out.println("Значение id должно быть представлено числом");}
+        catch (NullPointerException exception){System.out.println("Поле не может быть null");}
     }
     public void execute_script(TreeSet<Dragon> ts){
         Parser p = new Parser();
@@ -145,7 +154,7 @@ public void add_if_min(TreeSet ts){
     }
     public void print_field_descending_head(TreeSet<Dragon> ts){
         for (Dragon dragon : ts){
-            System.out.print(dragon.getHead()+" ");
+            System.out.print(dragon.getHead() +" ");
         }
     }
 }
