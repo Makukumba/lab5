@@ -35,7 +35,7 @@ public String NAME(){
         System.out.print("Введите имя Дракона: ");
         name = input.nextLine();
         if (name.equals("")) {
-            System.out.println("Некорректное описание. Повторите попытку.");
+            System.out.println("Некорректное имя. Повторите попытку.");
         }
 
         else {
@@ -47,9 +47,6 @@ public String NAME(){
 
 public int X(){
     Integer x = 0;
-
-
-
      while (x == 0) {
          try {
              System.out.print("Введите координату x: ");
@@ -57,8 +54,6 @@ public int X(){
             x = input.nextInt();
             if (x <= Coordinates.min_x) {
                 System.out.println("Ошибка! Число должно быть больше, чем " + Coordinates.min_x);
-            } else if (x == null) {
-                System.out.println("Ошибка, число не должно быть null");
             }
 
         }catch (InputMismatchException exception) {
@@ -101,7 +96,6 @@ public Coordinates COORDINATES(){
             if (description.equals("")) {
                 System.out.println("Некорректное описание. Повторите попытку.");
             }
-
             else {
                 break;
             }

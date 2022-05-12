@@ -26,10 +26,6 @@ public class CommandManager {
     }
     public void info(){
         LocalDate date = LocalDate.now();
-        int year = date.getYear();
-        int month = date.getMonthValue();
-        int dayOfMonth = date.getDayOfMonth();
-        DayOfWeek dayOfWeek = date.getDayOfWeek();
         if (ts.size() == 0) {
             System.out.println("Ошибка, Сначала добавьте элементы в коллекцию");
         }
@@ -40,8 +36,7 @@ public class CommandManager {
     }}
     public void exit(){
         System.out.println("завершение работы");
-        System.exit(0)
-        ;
+        System.exit(0);
     }
     public TreeSet<Dragon>  add() throws IOException {
         Dragon dragon = new Dragon(dragonChecker.ID(), dragonChecker.NAME(), dragonChecker.COORDINATES(), dragonChecker.DESCRIPTION(), dragonChecker.AGE(), dragonChecker.WEIGHT(), dragonChecker.CHAR(), dragonChecker.dragonHead());
@@ -62,10 +57,6 @@ public void save() throws IOException {
     gson.toJson(ts, writer);
     writer.close();
     System.out.println("Коллекция записана в файл " + file);}
-public void print_ascending()throws IOException{
-        System.out.println(ts.last());
-}
-
 public TreeSet <Dragon> clear(){
         ts.clear();
         System.out.println("Коллекция очищена");
