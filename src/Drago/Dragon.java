@@ -11,8 +11,6 @@ public class Dragon implements Comparable<Dragon> {
     private Integer weight;
     private DragonCharacter character;
     private DragonHead head;
-  //  private java.time.LocalDate creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
-
     public Dragon(Long id, String name, Coordinates coordinates, String description, int age, int weight, DragonCharacter character, DragonHead head) {
         this.id = id;
         this.name = name;
@@ -22,6 +20,7 @@ public class Dragon implements Comparable<Dragon> {
         this.weight = weight;
         this.character = character;
         this.head = head;
+
 
     }
     public long getId() {

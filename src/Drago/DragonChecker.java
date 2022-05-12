@@ -152,10 +152,10 @@ public Coordinates COORDINATES(){
         DragonCharacter dragonCharacter;
         while (true){
             Scanner scanner = new Scanner(System.in);
-            String a = "Cunning";
-            String b = "Evil";
-            String c = "Chaotic";
-            System.out.print("Введите характер дракона (Cunning / Evil / Chaotic): " );
+            String a = "CUNNING";
+            String b = "EVIL";
+            String c = "CHAOTIC";
+            System.out.print("Введите характер дракона (CUNNING / EVIL / CHAOTIC): " );
             String text = scanner.nextLine();
             if (text.equals(a)){
                 dragonCharacter = DragonCharacter.CUNNING;

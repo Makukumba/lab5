@@ -1,4 +1,4 @@
-package Managers;
+
 
 import Drago.Coordinates;
 import Drago.Dragon;
@@ -18,33 +18,10 @@ import java.util.TreeSet;
 
 import static Drago.DragonCharacter.EVIL;
 
-public class JWriter {
+/*public class JWriter {
     DragonChecker dragonChecker = new DragonChecker();
-    String dragonFile = System.getenv("jjson");
-    public JWriter write(TreeSet ts)  {
-        Dragon dragon = new Dragon(dragonChecker.ID(), dragonChecker.NAME(), dragonChecker.COORDINATES(), dragonChecker.DESCRIPTION(), dragonChecker.AGE(), dragonChecker.WEIGHT(), dragonChecker.CHAR(), dragonChecker.dragonHead());
-        ts.add(dragon);
-        return null;
-    }
-    public void ifmax(TreeSet<Dragon> ts)  {
-        while(true){
-            try{
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите id: ");
-        long iD = scanner.nextLong();
-        if (iD > ts.last().getId()){
-            Dragon dragon = new Dragon(iD, dragonChecker.NAME(), dragonChecker.COORDINATES(), dragonChecker.DESCRIPTION(), dragonChecker.AGE(), dragonChecker.WEIGHT(), EVIL, dragonChecker.dragonHead());
-            ts.add(dragon);
-            break;
-        }
-        else {
-            System.out.println("id должен быть больше, чем"+ts.last().getId()+ ". Попробуйте снова");
-        }
+   String dragonFile = System.getenv("jjson");
 
-        }catch (InputMismatchException exception){
-                System.out.println("Значение id должно быть представлено числом");}
-            catch (NullPointerException exception){System.out.println("Поле не может быть null");}}
-    }
     public void ifmin(TreeSet<Dragon> ts) {
         while (true) {
             try {
@@ -78,4 +55,4 @@ public class JWriter {
             System.out.println("Коллекция записана в файл " + file);
 
     }
-}
+}*/
