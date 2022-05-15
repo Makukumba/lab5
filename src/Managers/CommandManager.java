@@ -3,6 +3,7 @@ package Managers;
 import Drago.Dragon;
 import Drago.DragonCharacter;
 import Drago.DragonChecker;
+import Drago.HeadComparatop;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.sun.source.tree.Tree;
@@ -204,11 +205,15 @@ return ts;
    return ts;
     }
     public void print_field_descending_head(){
+        Set set = new TreeSet(new HeadComparatop());
         for (Dragon dragon : ts){
-            System.out.print(dragon.getHead() +" ");
+        set.add(dragon.getHead());
         }
-    }
-}
+      for (Object o : set){
+            System.out.println(o);
+        }
+    }}
+
 
 
 

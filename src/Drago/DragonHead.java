@@ -1,11 +1,12 @@
 package Drago;
 public class DragonHead {
     private Double eyesCount;
+  //  private int eyesCount;
     public DragonHead(double eyesCount) {
         this.eyesCount = eyesCount;
     }
-    private double getEyesCount(){
+    public double getEyesCount(){
         return eyesCount;
     }
-    public String toString(){return "Количество глаз: " + eyesCount;}
+    public String toString(){return ""+ eyesCount;}
     }

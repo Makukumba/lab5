@@ -8,8 +8,8 @@ import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class DragonChecker {
-    private long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
-    private String name; //Поле не может быть null, Строка не может быть пустой
+    // private long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
+   // private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
     private java.time.LocalDate creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     private int age; //Значение поля должно быть больше 0
@@ -37,7 +37,6 @@ public String NAME(){
         if (name.equals("")) {
             System.out.println("Некорректное имя. Повторите попытку.");
         }
-
         else {
             break;
         }
@@ -55,7 +54,6 @@ public int X(){
             if (x <= Coordinates.min_x) {
                 System.out.println("Ошибка! Число должно быть больше, чем " + Coordinates.min_x);
             }
-
         }catch (InputMismatchException exception) {
              System.out.println("Значение x должно быть представлено числом");}
 
@@ -146,10 +144,10 @@ public Coordinates COORDINATES(){
         DragonCharacter dragonCharacter;
         while (true){
             Scanner scanner = new Scanner(System.in);
-            String a = "CUNNING";
-            String b = "EVIL";
-            String c = "CHAOTIC";
-            System.out.print("Введите характер дракона (CUNNING / EVIL / CHAOTIC): " );
+            String a = "1";
+            String b = "2";
+            String c = "3";
+            System.out.print("Введите характер дракона (CUNNING(1) / EVIL(2) / CHAOTIC(3)): " );
             String text = scanner.nextLine();
             if (text.equals(a)){
                 dragonCharacter = DragonCharacter.CUNNING;
@@ -182,8 +180,8 @@ public Coordinates COORDINATES(){
 catch (InputMismatchException exception){
                     System.out.println("Значение eyes должно быть представлено числом");}
         catch (NullPointerException exception){System.out.println("Поле не может быть null");}
-
-    }return e;}
+    }
+        return e;}
    public DragonHead dragonHead(){
 double eyesCount;
        eyesCount=EYES();

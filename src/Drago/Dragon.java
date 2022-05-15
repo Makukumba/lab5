@@ -55,14 +55,12 @@ public class Dragon implements Comparable<Dragon> {
         return head;
     }
 
+    public int compareTo(Dragon dragon) {
 
-    public int compareTo(Dragon o) {
-        int result = this.id.compareTo(o.id);
-        return result;
+        return id.compareTo(dragon.getId());
     }
-
     public String toString() {
-        return " Id: " + id+ " Имя: " + name +   " Координаты: " + "(" + coordinates + ")" + " Возраст: " + age + " Описание: " + description + " Вес: " + weight + " Характер: " + character + " Голова: " + head;
+        return " Id: " + id+ " Имя: " + name +   " Координаты: " + "(" + coordinates + ")" + " Возраст: " + age + " Описание: " + description + " Вес: " + weight + " Характер: " + character + " Количество глаз: " + head;
     }
 
 }

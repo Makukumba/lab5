@@ -12,7 +12,7 @@ public class Print_field_descending_head extends AbstractCommand{
     }
 
     public void execute() throws IOException {
-
+cm.print_field_descending_head();
 
     }
 }

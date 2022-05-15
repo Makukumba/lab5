@@ -1,9 +1,7 @@
 package Managers;
-
 import Drago.Dragon;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 import java.io.FileReader;
 import java.lang.reflect.Type;
 import java.util.Scanner;
@@ -16,12 +14,9 @@ public class Parser {
         try(FileReader reader = new FileReader(dragonFile)){
             Scanner scan = new Scanner(reader);
             Type collectionType = new TypeToken<TreeSet<Dragon>>() {}.getType();
-            ts = gson.fromJson(scan.nextLine().trim(), collectionType);
-            return ts;
+            ts = gson.fromJson(scan.nextLine(), collectionType);
         }
         catch (Exception e ){
             System.out.println("Parsing error"+e.toString());
-
         }
-
         return ts;}}

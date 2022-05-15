@@ -30,7 +30,7 @@ public class Commander {
         commands.put("print_ascending", new Print_ascending(cm));
         commands.put("print_field_descending_head", new Print_field_descending_head(cm));
     }
-    public void executee() throws IOException {
+    public void start() throws IOException {
 
         while (true){
             Scanner s = new Scanner(System.in);

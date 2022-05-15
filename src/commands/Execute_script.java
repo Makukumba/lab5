@@ -20,7 +20,7 @@ public class Execute_script extends AbstractCommand{
         File f = new File("C:\\Users\\Public\\lab5\\Script.txt");
         FileReader r = new FileReader(f);
         Scanner s = new Scanner(r);
-
+        System.out.println("Выполняем скрипт из файла");
         while(s.hasNext()){
             String a = s.nextLine();
 
@@ -28,13 +28,4 @@ public class Execute_script extends AbstractCommand{
                 if(a.equals(command.getKey())){
                     command.getValue().execute();
         }}}
-
     }}
-
-        //System.out.print(a);}}}
-       /*
-
-        }
-        }
-    }
-}}*/
