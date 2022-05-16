@@ -3,10 +3,10 @@ package Drago;
 public class Coordinates {
     public int x;
     public long y;
-    public static int min_x =-835;
-    public static long min_y =-128;
+    public static int min_x = -835;
+    public static long min_y = -128;
 
-    public Coordinates( int x, long y) {
+    public Coordinates(int x, long y) {
         this.x = x;
         this.y = y;
     }
@@ -15,8 +15,7 @@ public class Coordinates {
         return x;
     }
 
-    public long getY()
-    {
+    public long getY() {
         return y;
     }
 
@@ -26,6 +25,4 @@ public class Coordinates {
     }
 
 
-
-
-    }
+}

@@ -4,4 +4,4 @@ public enum DragonCharacter {
     CUNNING,
     EVIL,
     CHAOTIC;
-    }
+}

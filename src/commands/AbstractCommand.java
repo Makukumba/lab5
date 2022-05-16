@@ -1,7 +1,6 @@
 package commands;
 
 
-
 public abstract class AbstractCommand implements commands.Command {
     private String name;
     private String description;
@@ -19,4 +18,4 @@ public abstract class AbstractCommand implements commands.Command {
         return description;
     }
 
-    }
+}

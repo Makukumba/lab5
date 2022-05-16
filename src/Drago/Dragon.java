@@ -1,6 +1,5 @@
 package Drago;
 
-import java.time.LocalDate;
 
 public class Dragon implements Comparable<Dragon> {
     private Long id;
@@ -11,6 +10,7 @@ public class Dragon implements Comparable<Dragon> {
     private Integer weight;
     private DragonCharacter character;
     private DragonHead head;
+
     public Dragon(Long id, String name, Coordinates coordinates, String description, int age, int weight, DragonCharacter character, DragonHead head) {
         this.id = id;
         this.name = name;
@@ -23,6 +23,7 @@ public class Dragon implements Comparable<Dragon> {
 
 
     }
+
     public long getId() {
         return id;
     }
@@ -55,12 +56,18 @@ public class Dragon implements Comparable<Dragon> {
         return head;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public int compareTo(Dragon dragon) {
 
         return id.compareTo(dragon.getId());
+
     }
+
     public String toString() {
-        return " Id: " + id+ " Имя: " + name +   " Координаты: " + "(" + coordinates + ")" + " Возраст: " + age + " Описание: " + description + " Вес: " + weight + " Характер: " + character + " Количество глаз: " + head;
+        return " Id: " + id + " Имя: " + name + " Координаты: " + "(" + coordinates + ")" + " Возраст: " + age + " Описание: " + description + " Вес: " + weight + " Характер: " + character + " Количество глаз: " + head;
     }
 
 }
