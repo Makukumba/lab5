@@ -18,14 +18,12 @@ public class Execute_script extends AbstractCommand {
 
 
     public void execute() throws IOException {
-       /** String scriptFile = System.getenv("ScriptFile");
+        String scriptFile = System.getenv("ScriptFile");
 
-     FileReader reader = new FileReader(scriptFile);
+        FileReader reader = new FileReader(scriptFile);
         Scanner s = new Scanner(reader);
-        */
-        File f = new File("C:\\Users\\Public\\lab5\\Script.txt");
-        FileReader r = new FileReader(f);
-        Scanner s = new Scanner(r);
+
+
         System.out.println("Выполняем скрипт из файла");
         while (s.hasNext()) {
             String a = s.nextLine();
@@ -37,5 +35,4 @@ public class Execute_script extends AbstractCommand {
             }
         }
     }
-
 }

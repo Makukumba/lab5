@@ -62,8 +62,16 @@ public class Dragon implements Comparable<Dragon> {
 
     public int compareTo(Dragon dragon) {
 
-        return id.compareTo(dragon.getId());
-
+        //return id.compareTo(dragon.getId());
+if(this.id ==dragon.getId()){
+    return 0;
+}
+else if(this.id<dragon.getId()){
+    return -1;
+}
+else {
+    return 1;
+}
     }
 
     public String toString() {

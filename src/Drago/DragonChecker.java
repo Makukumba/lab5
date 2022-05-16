@@ -9,7 +9,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class DragonChecker {
     public long ID(TreeSet<Dragon> ts) {
         long id;
-        if (ts.last() == null) {
+        if (ts.isEmpty()) {
             id = 1;
         } else {
             id = ts.last().getId() + 1;
