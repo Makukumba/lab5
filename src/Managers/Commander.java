@@ -28,7 +28,6 @@ public class Commander {
         commands.put("add_if_min", new Add_if_min(cm));
         commands.put("remove_lower", new RemoveLowerCommand(cm));
         commands.put("remove_any_by_description", new Remove_any_by_description(cm));
-        commands.put("print_ascending", new Print_ascending(cm));
         commands.put("print_field_descending_head", new Print_field_descending_head(cm));
     }
 
