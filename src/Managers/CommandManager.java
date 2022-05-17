@@ -27,10 +27,10 @@ public class CommandManager {
 
     public void info() {
         LocalDate date = LocalDate.now();
-        if (ts.size() == 0) {
+        if (ts.isEmpty()) {
             System.out.println("Ошибка, Сначала добавьте элементы в коллекцию");
         } else {
-            System.out.println("Коллекция типа TreeSet");
+            System.out.println("Коллекция типа " +ts.getClass().getName());
             System.out.println("Количество элементов в коллекции " + ts.size());
             System.out.println("Дата создания коллекции: " + date);
         }
@@ -115,7 +115,6 @@ public class CommandManager {
                 if (iD <= 0) {
                     System.out.println("id должен быть больше 0");
                 } else if (iD < ts.first().getId()) {
-                    Scanner scanner1 = new Scanner(System.in);
                     Dragon dragon = new Dragon(iD, dragonChecker.NAME(), dragonChecker.COORDINATES(), dragonChecker.DESCRIPTION(), dragonChecker.AGE(), dragonChecker.WEIGHT(), dragonChecker.CHAR(), dragonChecker.dragonHead());
                     ts.add(dragon);
                     System.out.println("Дракон успешно добавлен в коллекцию");
@@ -142,28 +141,30 @@ public class CommandManager {
     public TreeSet<Dragon> remove_by_id() {
         int a = 0;
         while (a == 0) {
-            System.out.print("Введите id: ");
-            try {
-                Scanner scanner = new Scanner(System.in);
-                long s = scanner.nextLong();
-                for (Dragon dragon : ts) {
-                    if (dragon.getId() == s) {
-                        ts.remove(dragon);
-                        System.out.println("Дракон с id " + s + " удален");
-                        a = 1;
-                        break;
-                    }
-                }
-                if (a == 0) {
-                    System.out.println("Дракона с таким id не существует");
-                }
-            } catch (InputMismatchException exception) {
-                System.out.println("Значение id должно быть представлено числом");
-            } catch (NullPointerException exception) {
-                System.out.println("Поле не может быть null");
-            } catch (NoSuchElementException exception) {
-                System.out.println("Коллекция пуста, сначала добавьте элементы");
+            if (ts.isEmpty()) {
+                System.out.println("Коллекция пуста, сначала добавьте драконов!");
                 break;
+            } else {
+                System.out.print("Введите id: ");
+                try {
+                    Scanner scanner = new Scanner(System.in);
+                    long s = scanner.nextLong();
+                    for (Dragon dragon : ts) {
+                        if (dragon.getId() == s) {
+                            ts.remove(dragon);
+                            System.out.println("Дракон с id " + s + " удален");
+                            a = 1;
+                            break;
+                        }
+                    }
+                    if (a == 0) {
+                        System.out.println("Дракона с таким id не существует");
+                    }
+                } catch (InputMismatchException exception) {
+                    System.out.println("Значение id должно быть представлено числом");
+                } catch (NullPointerException exception) {
+                    System.out.println("Поле не может быть null");
+                }
             }
         }
         return ts;
@@ -174,8 +175,11 @@ public class CommandManager {
 
         int a = 0;
         while (a == 0) {
-            System.out.print("Введите описание: ");
-            try {
+            if (ts.isEmpty()) {
+                System.out.println("Коллекция пуста, сначала добавьте драконов!");
+                break;
+            } else {
+                System.out.print("Введите описание: ");
                 Scanner scanner = new Scanner(System.in);
                 String s = scanner.nextLine();
                 for (Dragon dragon : ts) {
@@ -189,10 +193,6 @@ public class CommandManager {
                 if (a == 0) {
                     System.out.println("Дракона с таким описанием не существует, поробуйте снова");
                 }
-            } catch (NoSuchElementException exception) {
-                System.out.println("Коллекция пуста, сначала добавьте элементы");
-                break;
-
             }
         }
 
@@ -204,45 +204,44 @@ public class CommandManager {
         int a = 0;
         int x = 0;
         while (a == 0 || a == 2) {
-            try {
-                Scanner scanner = new Scanner(System.in);
-                System.out.print("Введите id дракона: ");
-                long s = scanner.nextLong();
-                for (Dragon dragon : ts) {
-                    if (dragon.getId() == s) {
-                        System.out.print("Введите новый id дракона: ");
-                        Scanner scanner1 = new Scanner(System.in);
-                        long s1 = scanner1.nextLong();
-                        for (Dragon dragon2 : ts) {
-                            if (dragon2.getId() == s1) {
-                                System.out.println("Дракон с таким id уже существует, попробуйте снова");
-                                x = 0;
-                                a = 2;
-                                break;
-                            } else {
-                                x = 1;
+            if (ts.isEmpty()) {
+                System.out.println("Коллекция пуста, сначала добавьте драконов");
+            } else {
+
+                try {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Введите id дракона: ");
+                    long s = scanner.nextLong();
+                    for (Dragon dragon : ts) {
+                        if (dragon.getId() == s) {
+                            System.out.print("Введите новый id дракона: ");
+                            Scanner scanner1 = new Scanner(System.in);
+                            long s1 = scanner1.nextLong();
+                            for (Dragon dragon2 : ts) {
+                                if (dragon2.getId() == s1) {
+                                    System.out.println("Дракон с таким id уже существует, попробуйте снова");
+                                    x = 0;
+                                    a = 2;
+                                    break;
+                                } else {
+                                    x = 1;
+                                }
+                            }
+                            if (x == 1) {
+                                dragon.setId(s1);
+                                System.out.println("id дракона обновлён");
+                                a = 1;
                             }
                         }
-                        if (x == 1) {
-                            dragon.setId(s1);
-                            System.out.println("id дракона обновлён");
-                            a = 1;
-                        }
                     }
-                    //else {
-                    //break;
-                    //}
+                    if (a == 0) {
+                        System.out.println("Дракона с таким id не существует, попробуйте снова");
+                    }
+                } catch (InputMismatchException exception) {
+                    System.out.println("Значение id должно быть представлено числом, попробуйте снова");
+                } catch (NullPointerException exception) {
+                    System.out.println("Поле не может быть null, попробуйте снова");
                 }
-                if (a == 0) {
-                    System.out.println("Дракона с таким id не существует, попробуйте снова");
-                }
-            } catch (InputMismatchException exception) {
-                System.out.println("Значение id должно быть представлено числом, попробуйте снова");
-            } catch (NullPointerException exception) {
-                System.out.println("Поле не может быть null, попробуйте снова");
-            } catch (NoSuchElementException exception) {
-                System.out.println("Коллекция пуста, сначала добавьте элементы");
-                break;
             }
         }
 
@@ -253,30 +252,30 @@ public class CommandManager {
     public TreeSet<Dragon> remove_lower() {
         int a = 0;
         while (a == 0) {
-
-            try {
-                System.out.print("Введите id дракона: ");
-                Scanner scanner = new Scanner(System.in);
-                long s = scanner.nextLong();
-                for (Iterator<Dragon> iterator = ts.iterator(); iterator.hasNext(); ) {
-                    Dragon dragon = iterator.next();
-                    if (dragon.getId() < s) {
-                        iterator.remove();
-                        System.out.println("Драконы с id меньше, чем " + s + " удалены");
-                        a = 1;
-                        break;
+            if (ts.isEmpty()) {
+                System.out.println("Коллекция пуста, сначала добавьте элементы!");
+            } else {
+                try {
+                    System.out.print("Введите id дракона: ");
+                    Scanner scanner = new Scanner(System.in);
+                    long s = scanner.nextLong();
+                    for (Iterator<Dragon> iterator = ts.iterator(); iterator.hasNext(); ) {
+                        Dragon dragon = iterator.next();
+                        if (dragon.getId() < s) {
+                            iterator.remove();
+                            System.out.println("Драконы с id меньше, чем " + s + " удалены");
+                            a = 1;
+                            break;
+                        }
                     }
+                    if (a == 0) {
+                        System.out.println("Драконов с id, меньше, чем " + s + " не существует, попробуйте снова");
+                    }
+                } catch (InputMismatchException exception) {
+                    System.out.println("Значение id должно быть представлено числом, поробуйте снова");
+                } catch (NullPointerException exception) {
+                    System.out.println("Поле не может быть null");
                 }
-                if (a == 0) {
-                    System.out.println("Драконов с id, меньше, чем " + s + " не существует, попробуйте снова");
-                }
-            } catch (InputMismatchException exception) {
-                System.out.println("Значение id должно быть представлено числом, поробуйте снова");
-            } catch (NullPointerException exception) {
-                System.out.println("Поле не может быть null");
-            } catch (NoSuchElementException exception) {
-                System.out.println("Коллекция пуста, сначала добавьте элементы");
-                break;
             }
         }
         return ts;
@@ -284,16 +283,17 @@ public class CommandManager {
 
 
     public void print_field_descending_head() {
-
-        Set set = new TreeSet(new HeadComparatop());
-        for (Dragon dragon : ts) {
-            set.add(dragon.getHead());
+        if (ts.isEmpty()) {
+            System.out.println("Коллекция пуста, сначала добавьте драконов!");
+        } else {
+            Set set = new TreeSet(new HeadComparatop());
+            for (Dragon dragon : ts) {
+                set.add(dragon.getHead());
+            }
+            for (Object o : set) {
+                System.out.println(o);
+            }
         }
-        for (Object o : set) {
-            System.out.println(o);
-        }
-
-
     }
 }
 
